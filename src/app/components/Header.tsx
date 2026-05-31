@@ -24,17 +24,6 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    const overflowValue = isMenuOpen ? 'hidden' : '';
-    document.body.style.overflow = overflowValue;
-    document.documentElement.style.overflow = overflowValue;
-
-    return () => {
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-    };
-  }, [isMenuOpen]);
-
   const menuItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'Sobre Mim' },
@@ -156,7 +145,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 md:hidden"
+            className="fixed inset-0 z-40 md:hidden overflow-y-auto"
           >
             <button
               type="button"
@@ -169,7 +158,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-0 z-50 w-full max-w-[100vw] overflow-x-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg pt-16 sm:pt-20"
+              className="absolute inset-x-0 top-0 bottom-0 z-50 w-full max-w-[100vw] overflow-y-auto box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg pt-16 sm:pt-20"
             >
               <div className="px-4 py-4 space-y-2">
                 {menuItems.map((item) => (
