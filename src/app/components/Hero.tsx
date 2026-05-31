@@ -56,7 +56,7 @@ export function Hero({ onNavigate }: HeroProps) {
               </h2>
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Sou fascinado por tecnologia e pela facilidade que ela gera no cotidiano, com foco na lógica e em resolução de problemas.
+                Sou fascinado por tecnologia e pela facilidade que ela gera no cotidiano. Atuo com foco na lógica e em resolução de problemas.
               </p>
             </motion.div>
 
