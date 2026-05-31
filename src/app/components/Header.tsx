@@ -156,7 +156,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
             <button
               type="button"
               aria-label="Fechar menu"
-              className="fixed left-0 right-0 bottom-0 top-16 sm:top-20 z-40 bg-black/20"
+              className="fixed inset-0 z-40 bg-black/20"
               onClick={() => setIsMenuOpen(false)}
             />
             <motion.nav
@@ -164,7 +164,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-0 right-0 top-16 sm:top-20 z-50 w-full max-w-[100vw] overflow-x-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg"
+              className="fixed inset-x-0 top-0 z-50 w-full max-w-[100vw] overflow-x-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg pt-16 sm:pt-20"
             >
               <div className="px-4 py-4 space-y-2">
                 {menuItems.map((item) => (
