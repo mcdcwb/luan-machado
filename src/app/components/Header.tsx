@@ -37,63 +37,81 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 w-full max-w-[100vw] overflow-x-hidden transition-all duration-300 ${isScrolled
-        ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg shadow-sm'
-        : 'bg-transparent'
-        }`}
-    >
-      <nav className="mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-2 h-16 sm:h-20 min-w-0">
-          {/* Logo */}
-          <motion.button
-            type="button"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            onClick={() => {
-              onNavigate('home');
-              setIsMenuOpen(false);
-            }}
-            className="font-bold text-sm sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-0 p-0 min-w-0 truncate max-w-[calc(100%-6rem)] sm:max-w-none text-left"
-            aria-label="Ir para o início"
-          >
-            <span className="sm:hidden">{'<Luan />'}</span>
-            <span className="hidden sm:inline">{'<Luan Machado />'}</span>
-          </motion.button>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 w-full max-w-[100vw] overflow-x-hidden transition-all duration-300 ${isScrolled
+          ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg shadow-sm'
+          : 'bg-transparent'
+          }`}
+      >
+        <nav className="mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-2 h-16 sm:h-20 min-w-0">
+            {/* Logo */}
+            <motion.button
+              type="button"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              onClick={() => {
+                onNavigate('home');
+                setIsMenuOpen(false);
+              }}
+              className="font-bold text-sm sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-0 p-0 min-w-0 truncate max-w-[calc(100%-6rem)] sm:max-w-none text-left"
+              aria-label="Ir para o início"
+            >
+              <span className="sm:hidden">{'<Luan />'}</span>
+              <span className="hidden sm:inline">{'<Luan Machado />'}</span>
+            </motion.button>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-1 lg:gap-2">
-            {menuItems.map((item, index) => (
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-1 lg:gap-2">
+              {menuItems.map((item, index) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Button
+                    variant="ghost"
+                    onClick={() => onNavigate(item.id)}
+                    className={`text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors ${activeSection === item.id
+                      ? 'text-gray-900 dark:text-white font-medium'
+                      : ''
+                      }`}
+                  >
+                    {item.label}
+                  </Button>
+                </motion.div>
+              ))}
+
               <motion.div
-                key={item.id}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <Button
                   variant="ghost"
-                  onClick={() => onNavigate(item.id)}
-                  className={`text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors ${activeSection === item.id
-                    ? 'text-gray-900 dark:text-white font-medium'
-                    : ''
-                    }`}
+                  size="icon"
+                  onClick={toggleTheme}
+                  className="ml-2"
+                  aria-label="Alternar tema"
                 >
-                  {item.label}
+                  {theme === 'dark' ? (
+                    <Sun className="h-5 w-5" />
+                  ) : (
+                    <Moon className="h-5 w-5" />
+                  )}
                 </Button>
               </motion.div>
-            ))}
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
+            {/* Mobile Menu Button */}
+            <div className="flex items-center gap-1 shrink-0 md:hidden">
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="ml-2"
                 aria-label="Alternar tema"
               >
                 {theme === 'dark' ? (
@@ -102,78 +120,64 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
                   <Moon className="h-5 w-5" />
                 )}
               </Button>
-            </motion.div>
-          </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-1 shrink-0 md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              aria-label="Alternar tema"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Menu"
+              >
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </Button>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden"
-          >
-            <motion.nav
-              initial={{ opacity: 0, y: -8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
+        {
+          isMenuOpen && (
+            <motion.div
+              key="mobile-menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="absolute inset-x-0 top-full z-50 w-full max-w-[100vw] overflow-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg"
+              className="md:hidden"
             >
-              <div className="px-4 py-4 space-y-2">
-                {menuItems.map((item) => (
-                  <Button
-                    key={item.id}
-                    type="button"
-                    variant="ghost"
-                    onClick={() => handleMenuClick(item.id)}
-                    className={`w-full justify-start text-left ${activeSection === item.id
-                      ? 'bg-gray-100 dark:bg-gray-800 font-medium'
-                      : ''
-                      }`}
-                  >
-                    {item.label}
-                  </Button>
-                ))}
-              </div>
-            </motion.nav>
-          </motion.div>
-        )}
+              <motion.nav
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-x-0 top-16 sm:top-20 z-40 w-full max-w-[100vw] max-h-[calc(100vh-5rem)] overflow-y-auto box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg"
+              >
+                <div className="px-4 py-4 space-y-2">
+                  {menuItems.map((item) => (
+                    <Button
+                      key={item.id}
+                      type="button"
+                      variant="ghost"
+                      onClick={() => handleMenuClick(item.id)}
+                      className={`w-full justify-start text-left ${activeSection === item.id
+                          ? 'bg-gray-100 dark:bg-gray-800 font-medium'
+                          : ''
+                        }`}
+                    >
+                      {item.label}
+                    </Button>
+                  ))}
+                </div>
+              </motion.nav>
+            </motion.div>
+          )
+        }
       </AnimatePresence>
-    </header>
+    </>
   );
 }
