@@ -3,6 +3,7 @@ import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Button } from './ui/button';
 import { useTheme } from './ThemeProvider';
 import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
 
 interface HeaderProps {
   onNavigate: (section: string) => void;
@@ -24,9 +25,13 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    const overflowValue = isMenuOpen ? 'hidden' : '';
+    document.body.style.overflow = overflowValue;
+    document.documentElement.style.overflow = overflowValue;
+
     return () => {
       document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
     };
   }, [isMenuOpen]);
 
@@ -151,12 +156,12 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden"
+            className="fixed inset-0 z-40 md:hidden"
           >
             <button
               type="button"
               aria-label="Fechar menu"
-              className="fixed inset-0 z-40 bg-black/20"
+              className="absolute inset-0 bg-black/20"
               onClick={() => setIsMenuOpen(false)}
             />
             <motion.nav
@@ -164,7 +169,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-x-0 top-0 z-50 w-full max-w-[100vw] overflow-x-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg pt-16 sm:pt-20"
+              className="absolute inset-x-0 top-0 z-50 w-full max-w-[100vw] overflow-x-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg pt-16 sm:pt-20"
             >
               <div className="px-4 py-4 space-y-2">
                 {menuItems.map((item) => (
