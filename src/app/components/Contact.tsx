@@ -290,6 +290,7 @@ export function Contact() {
                         type="button"
                         onClick={method.onClick}
                         {...motionProps}
+                        className="block w-full text-left p-0 border-0 bg-transparent cursor-pointer"
                       >
                         {card}
                       </motion.button>
