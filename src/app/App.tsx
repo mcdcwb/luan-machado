@@ -50,20 +50,23 @@ function PortfolioContent() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <Header onNavigate={scrollToSection} activeSection={activeSection} />
+    <>
+      <div className="min-h-screen bg-white dark:bg-gray-900 overflow-x-hidden max-w-full">
+        <Header onNavigate={scrollToSection} activeSection={activeSection} />
 
-      <main>
-        <Hero onNavigate={scrollToSection} />
-        <About />
-        <Projects />
-        <Contact />
-      </main>
+        <main className="overflow-x-hidden max-w-full">
+          <Hero onNavigate={scrollToSection} />
+          <About />
+          <Projects />
+          <Contact />
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
+
       <FloatingActions />
       <Toaster />
-    </div>
+    </>
   );
 }
 

@@ -9,13 +9,14 @@ export function Footer() {
     <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-start">
             {/* Brand */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="text-center md:text-left"
             >
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 {'<Luan />'}
@@ -31,6 +32,7 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex flex-col items-center text-center"
             >
               <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
                 Links Rápidos
@@ -77,11 +79,12 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col items-center md:items-end text-center md:text-right"
             >
               <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
                 Redes Sociais
               </h4>
-              <div className="flex gap-3">
+              <div className="flex gap-3 justify-center md:justify-end">
                 <Button
                   variant="outline"
                   size="icon"
@@ -137,14 +140,11 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="pt-8 border-t border-gray-200 dark:border-gray-800"
+            className="pt-8 border-t border-gray-200 dark:border-gray-800 text-center"
           >
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <p className="text-gray-600 dark:text-gray-400 text-sm text-center sm:text-left">
-                © {currentYear} Luan Machado. Todos os direitos reservados.
-              </p>
-
-            </div>
+            <p className="text-gray-600 dark:text-gray-400 text-sm">
+              © {currentYear} Luan Machado. Todos os direitos reservados.
+            </p>
           </motion.div>
         </div>
       </div>

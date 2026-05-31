@@ -23,6 +23,13 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   const menuItems = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'Sobre Mim' },
@@ -37,27 +44,28 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 w-full max-w-[100vw] overflow-x-hidden transition-all duration-300 ${isScrolled
         ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-lg shadow-sm'
         : 'bg-transparent'
         }`}
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <nav className="mx-auto w-full max-w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between gap-2 h-16 sm:h-20 min-w-0">
           {/* Logo */}
           <motion.button
             type="button"
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
             onClick={() => {
               onNavigate('home');
               setIsMenuOpen(false);
             }}
-            className="font-bold text-xl sm:text-2xl text-gray-900 dark:text-white hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-0 p-0"
+            className="font-bold text-sm sm:text-xl md:text-2xl text-gray-900 dark:text-white hover:opacity-80 transition-opacity cursor-pointer bg-transparent border-0 p-0 min-w-0 truncate max-w-[calc(100%-6rem)] sm:max-w-none text-left"
             aria-label="Ir para o início"
           >
-            {'<Luan Machado />'}
+            <span className="sm:hidden">{'<Luan />'}</span>
+            <span className="hidden sm:inline">{'<Luan Machado />'}</span>
           </motion.button>
 
           {/* Desktop Menu */}
@@ -104,7 +112,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-1 shrink-0 md:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -148,7 +156,7 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
             <button
               type="button"
               aria-label="Fechar menu"
-              className="fixed inset-0 top-16 sm:top-20 z-40 bg-black/20"
+              className="fixed left-0 right-0 bottom-0 top-16 sm:top-20 z-40 bg-black/20"
               onClick={() => setIsMenuOpen(false)}
             />
             <motion.nav
@@ -156,9 +164,9 @@ export function Header({ onNavigate, activeSection }: HeaderProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.2 }}
-              className="fixed left-0 right-0 top-16 sm:top-20 z-50 bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg"
+              className="fixed left-0 right-0 top-16 sm:top-20 z-50 w-full max-w-[100vw] overflow-x-hidden box-border bg-white dark:bg-gray-950 border-b border-gray-200 dark:border-gray-800 shadow-lg"
             >
-              <div className="container mx-auto px-4 py-4 space-y-2">
+              <div className="px-4 py-4 space-y-2">
                 {menuItems.map((item) => (
                   <Button
                     key={item.id}

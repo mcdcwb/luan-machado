@@ -1,22 +1,37 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ArrowUp } from 'lucide-react';
-import { Button } from './ui/button';
-import { motion, AnimatePresence } from 'motion/react';
+
+function getScrollTop() {
+  return (
+    window.scrollY ||
+    document.documentElement.scrollTop ||
+    document.body.scrollTop ||
+    0
+  );
+}
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(getScrollTop() > 200);
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    toggleVisibility();
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    document.addEventListener('scroll', toggleVisibility, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', toggleVisibility);
+      document.removeEventListener('scroll', toggleVisibility);
+    };
   }, []);
 
   const scrollToTop = () => {
@@ -26,25 +41,25 @@ export function ScrollToTop() {
     });
   };
 
-  return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.2 }}
-        >
-          <Button
-            onClick={scrollToTop}
-            size="icon"
-            className="h-12 w-12 rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white"
-            aria-label="Voltar ao topo"
-          >
-            <ArrowUp className="h-6 w-6" />
-          </Button>
-        </motion.div>
-      )}
-    </AnimatePresence>
+  if (!mounted || !isVisible) {
+    return null;
+  }
+
+  return createPortal(
+    <button
+      type="button"
+      onClick={scrollToTop}
+      aria-label="Voltar ao topo"
+      style={{
+        position: 'fixed',
+        bottom: '6.5rem',
+        right: '2rem',
+        zIndex: 100,
+      }}
+      className="flex h-12 w-12 items-center justify-center rounded-full shadow-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 transition-transform hover:scale-105 cursor-pointer border-0"
+    >
+      <ArrowUp className="h-6 w-6" />
+    </button>,
+    document.body
   );
 }
