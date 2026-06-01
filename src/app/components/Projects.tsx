@@ -49,7 +49,7 @@ const projects = [
     image: initProgImg,
     technologies: ['JavaScript'],
     github: 'https://github.com/mcdcwb/projeto-initial-programs',
-    demo: 'https://projeto-initial-programs.vercel.app/',
+    demo: 'https://projeto-initial-programs-dpln.vercel.app/',
   },
   {
     id: 5,
