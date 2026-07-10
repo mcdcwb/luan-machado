@@ -4,6 +4,7 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import pringlesImg from '@/img/project/pringles.png';
 import cardapioImg from '@/img/project/cardapio.png';
 import mcdflixImg from '@/img/project/mcdflix.png';
 import fuelCalcImg from '@/img/project/fuel-calc.png';
@@ -23,6 +24,16 @@ const projects = [
   },
   {
     id: 2,
+    title: 'Pringles - Landing Page',
+    description:
+      'Projeto desenvolvido para criar uma experiência visual imersiva e interativa para a marca Pringles, explorando animações de alto nível e transições fluidas entre produtos.',
+    image: pringlesImg,
+    technologies: ['JavaScript', 'GSAP'],
+    github: 'https://github.com/mcdcwb/pringles',
+    demo: 'https://pringles-kappa.vercel.app/',
+  },
+  {
+    id: 3,
     title: 'McdFlix - Filmes e Séries',
     description:
       'Veja a sinopse e a avaliação de uma lista de filmes. Contém aba Favoritos',
@@ -32,7 +43,7 @@ const projects = [
     demo: 'https://mcdflix.vercel.app/',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Fuel Calculator',
     description:
       'Ferramenta que auxilia o usuário a identificar a opção mais econômica entre álcool e gasolina, com base nos preços atuais dos combustíveis.',
@@ -42,7 +53,7 @@ const projects = [
     demo: 'https://fuel-calculator-seven.vercel.app/',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Initial Programs',
     description:
       'Projeto desenvolvido afim de facilitar o download de programas e ferramentas comuns utilizadas no dia dia de uma só vez',
@@ -52,7 +63,7 @@ const projects = [
     demo: 'https://projeto-initial-programs-dpln.vercel.app/',
   },
   {
-    id: 5,
+    id: 6,
     title: 'IMC Calculator',
     description:
       'Calculadora de IMC.',
