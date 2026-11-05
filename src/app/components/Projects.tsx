@@ -10,10 +10,21 @@ import mcdflixImg from '@/img/project/mcdflix.png';
 import fuelCalcImg from '@/img/project/fuel-calc.png';
 import initProgImg from '@/img/project/init-prog.png';
 import imcCalcImg from '@/img/project/imc-calc.png';
+import mcdStore from '@/img/project/mcd-store.png';
 
 const projects = [
   {
     id: 1,
+    title: 'Mcd Store - Loja virtual',
+    description:
+      'E-commerce full-stack com autenticação, perfis de acesso (administrador, demonstração e cliente), painel administrativo e API REST com banco PostgreSQL. Inclui upload de imagens na nuvem e deploy em produção.',
+    image: mcdStore,
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'Node.js', 'Prisma', 'PostgreSQL', 'JWT', 'Cloudinary'],
+    github: 'https://github.com/mcdcwb/mcd-store',
+    demo: 'https://mcd-store-self.vercel.app/',
+  },
+  {
+    id: 2,
     title: 'Mcd Burguer - Cardápio Digital',
     description:
       'Aplicação web de cardápio digital interativo para hamburguerias, permitindo navegar entre os produtos, gerenciar o carrinho e finalizar pedidos via WhatsApp.',
@@ -23,7 +34,7 @@ const projects = [
     demo: 'https://cardapio-khaki-nine.vercel.app/',
   },
   {
-    id: 2,
+    id: 3,
     title: 'Pringles - Landing Page',
     description:
       'Projeto desenvolvido para criar uma experiência visual imersiva e interativa para a marca Pringles, explorando animações de alto nível e transições fluidas entre produtos.',
@@ -33,7 +44,7 @@ const projects = [
     demo: 'https://pringles-kappa.vercel.app/',
   },
   {
-    id: 3,
+    id: 4,
     title: 'McdFlix - Filmes e Séries',
     description:
       'Veja a sinopse e a avaliação de uma lista de filmes. Contém aba Favoritos',
@@ -43,7 +54,7 @@ const projects = [
     demo: 'https://mcdflix.vercel.app/',
   },
   {
-    id: 4,
+    id: 5,
     title: 'Fuel Calculator',
     description:
       'Ferramenta que auxilia o usuário a identificar a opção mais econômica entre álcool e gasolina, com base nos preços atuais dos combustíveis.',
@@ -53,7 +64,7 @@ const projects = [
     demo: 'https://fuel-calculator-seven.vercel.app/',
   },
   {
-    id: 5,
+    id: 6,
     title: 'Initial Programs',
     description:
       'Projeto desenvolvido afim de facilitar o download de programas e ferramentas comuns utilizadas no dia dia de uma só vez',
@@ -63,7 +74,7 @@ const projects = [
     demo: 'https://projeto-initial-programs-dpln.vercel.app/',
   },
   {
-    id: 6,
+    id: 7,
     title: 'IMC Calculator',
     description:
       'Calculadora de IMC.',
