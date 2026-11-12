@@ -65,12 +65,12 @@ export function Hero({ onNavigate }: HeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 items-center"
+              className="flex flex-col sm:flex-row gap-4 items-center w-full max-w-xs sm:max-w-none sm:w-auto"
             >
               <Button
                 size="lg"
                 onClick={() => onNavigate('projects')}
-                className="bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="w-full sm:w-auto border-2 border-transparent bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
               >
                 Ver Projetos
               </Button>
@@ -79,16 +79,16 @@ export function Hero({ onNavigate }: HeroProps) {
                 size="lg"
                 variant="outline"
                 onClick={() => onNavigate('contact')}
-                className="border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="w-full sm:w-auto border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
               >
                 Entre em Contato
               </Button>
 
               <Button
                 size="lg"
-                variant="ghost"
+                variant="outline"
                 asChild
-                className="text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800 px-8 py-6 text-base sm:text-lg rounded-full gap-2"
+                className="w-full sm:w-auto border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all gap-2"
               >
                 <a href="/Curriculo-Luan-Machado-Favaro.pdf" download>
                   <FileDown className="h-5 w-5" />
