@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, FileDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import profileImage from '@/img/img-profile.png';
@@ -56,7 +56,7 @@ export function Hero({ onNavigate }: HeroProps) {
               </h2>
 
               <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-                Sou fascinado por tecnologia e pela facilidade que ela gera no cotidiano. Atuo com foco na lógica e em resolução de problemas.
+                Desenvolvo aplicações web completas, do banco de dados à interface, com React, TypeScript, Node.js e PostgreSQL.
               </p>
             </motion.div>
 
@@ -82,6 +82,18 @@ export function Hero({ onNavigate }: HeroProps) {
                 className="border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
               >
                 Entre em Contato
+              </Button>
+
+              <Button
+                size="lg"
+                variant="ghost"
+                asChild
+                className="text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800 px-8 py-6 text-base sm:text-lg rounded-full gap-2"
+              >
+                <a href="/Curriculo-Luan-Machado-Favaro.pdf" download>
+                  <FileDown className="h-5 w-5" />
+                  Baixar Currículo
+                </a>
               </Button>
             </motion.div>
 

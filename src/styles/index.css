@@ -40,9 +40,11 @@ body {
   background: rgba(255, 255, 255, 0.3);
 }
 
-/* Smooth transitions for theme */
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-duration: 200ms;
-  transition-timing-function: ease-in-out;
+/* Smooth transitions for theme (em @layer base para não sobrescrever as classes transition-* do Tailwind) */
+@layer base {
+  * {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in-out;
+  }
 }

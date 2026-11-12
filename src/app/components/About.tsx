@@ -74,20 +74,22 @@ export function About() {
               className="space-y-6"
             >
               <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Seja bem vindo(a), me chamo Luan e sou um desenvolvedor full stack apaixonado por criar
-                soluções digitais focado em solucionar problemas. Tenho trabalhado com diversas tecnologias e
-                frameworks modernos.
+                Me chamo Luan, sou desenvolvedor full stack formado em Análise e Desenvolvimento de
+                Sistemas. Trabalho com React, TypeScript, Node.js (Express), Prisma e PostgreSQL, cuidando
+                de uma aplicação do modelo de dados ao deploy.
               </p>
 
               <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-              Minha paixão por tecnologia começou cedo, quando eu passava horas explorando e resolvendo problemas em computadores. O que começou como interesse por hardware e manutenção evoluiu naturalmente para o universo do desenvolvimento de software. Desde então, venho dedicando meu tempo ao aprendizado contínuo e à criação de projetos que fortalecem minhas habilidades como desenvolvedor.
+              Antes do código, passei quatro anos na manutenção de computadores e notebooks. Foi ali que
+              aprendi a diagnosticar problemas com método, e esse interesse por entender como as coisas
+              funcionam me levou para o desenvolvimento de software.
 
               </p>
 
               <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                Acredito que código limpo, boas práticas e experiência do
-                usuário são fundamentais para criar produtos excepcionais. Estou
-                sempre buscando novos desafios e oportunidades para crescer profissionalmente.
+                Meu projeto principal é a MCD Store, um e-commerce com painel administrativo, autenticação
+                JWT, testes automatizados e integração contínua. Hoje busco uma vaga em equipe de
+                desenvolvimento, onde eu possa contribuir e evoluir junto com o time.
               </p>
             </motion.div>
 
@@ -111,7 +113,21 @@ export function About() {
                     Autônomo • 2024 - Presente
                   </p>
                   <p className="text-gray-700 dark:text-gray-300 mt-2">
-                    Desenvolvimento de projetos web com React, TypeScript, Tailwind CSS, entre outras tecnologias.
+                    Desenvolvimento da MCD Store, e-commerce full-stack com React, TypeScript, Express, Prisma e
+                    PostgreSQL: painel administrativo, autenticação JWT, testes automatizados e CI com GitHub Actions.
+                  </p>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                    Desenvolvedor Front-end
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Voala Records (freelance) • Fev 2025 - Jun 2025
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 mt-2">
+                    Landing page responsiva para uma gravadora de Curitiba, com React, Vite, TypeScript e
+                    Tailwind CSS.
                   </p>
                 </div>
 

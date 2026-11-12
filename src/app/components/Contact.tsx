@@ -314,12 +314,12 @@ export function Contact() {
               {/* Additional Info */}
               <Card className="p-6 border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-gray-950">
                 <h4 className="font-bold text-gray-900 dark:text-white mb-3">
-                  Tempo de Resposta
+                  Disponibilidade
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300 text-sm">
-                  Geralmente respondo a todas as mensagens dentro de 24-48
-                  horas. Para projetos urgentes, entre em contato diretamente
-                  pelo LinkedIn.
+                  Respondo todas as mensagens em até 48 horas. Estou aberto a
+                  oportunidades CLT e PJ. Se preferir, fale comigo direto pelo
+                  LinkedIn.
                 </p>
               </Card>
             </motion.div>
