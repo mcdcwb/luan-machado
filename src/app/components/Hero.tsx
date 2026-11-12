@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Github, Linkedin, Mail, ArrowDown, FileDown } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowDown, ArrowRight, FileDown } from 'lucide-react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import profileImage from '@/img/img-profile.png';
@@ -70,17 +70,19 @@ export function Hero({ onNavigate }: HeroProps) {
               <Button
                 size="lg"
                 onClick={() => onNavigate('projects')}
-                className="w-full sm:w-auto border-2 border-transparent bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="group/projects w-full sm:w-auto gap-2 border-2 border-transparent bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5 transition-all duration-300 ease-out"
               >
                 Ver Projetos
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 ease-out group-hover/projects:translate-x-1" />
               </Button>
 
               <Button
                 size="lg"
                 variant="outline"
                 onClick={() => onNavigate('contact')}
-                className="w-full sm:w-auto border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                className="group/contact w-full sm:w-auto border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5 transition-all duration-300 ease-out gap-2"
               >
+                <Mail className="h-5 w-5 transition-transform duration-300 ease-out group-hover/contact:-rotate-12 group-hover/contact:scale-110" />
                 Entre em Contato
               </Button>
 
@@ -88,10 +90,10 @@ export function Hero({ onNavigate }: HeroProps) {
                 size="lg"
                 variant="outline"
                 asChild
-                className="w-full sm:w-auto border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl transition-all gap-2"
+                className="group/cv w-full sm:w-auto border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-gray-900 px-8 py-6 text-base sm:text-lg rounded-full shadow-lg hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5 transition-all duration-300 ease-out gap-2"
               >
                 <a href="/Curriculo-Luan-Machado-Favaro.pdf" download>
-                  <FileDown className="h-5 w-5" />
+                  <FileDown className="h-5 w-5 transition-transform duration-300 ease-out group-hover/cv:translate-y-0.5" />
                   Baixar Currículo
                 </a>
               </Button>
