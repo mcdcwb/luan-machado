@@ -9,7 +9,7 @@ export function Footer() {
     <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 items-start">
             {/* Brand */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -26,59 +26,12 @@ export function Footer() {
               </p>
             </motion.div>
 
-            {/* Quick Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex flex-col items-center text-center"
-            >
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
-                Links Rápidos
-              </h4>
-              <ul className="space-y-2">
-                <li>
-                  <a
-                    href="#home"
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
-                  >
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#about"
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
-                  >
-                    Sobre Mim
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#projects"
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
-                  >
-                    Projetos
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#contact"
-                    className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors text-sm"
-                  >
-                    Contato
-                  </a>
-                </li>
-              </ul>
-            </motion.div>
-
             {/* Social Links */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="flex flex-col items-center md:items-end text-center md:text-right"
             >
               <h4 className="font-semibold text-gray-900 dark:text-white mb-4">
