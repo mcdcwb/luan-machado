@@ -9,7 +9,6 @@ import pringlesImg from '@/img/project/pringles.png';
 import cardapioImg from '@/img/project/cardapio.png';
 import mcdflixImg from '@/img/project/mcdflix.png';
 import fuelCalcImg from '@/img/project/fuel-calc.png';
-import mcdStore from '@/img/project/mcd-store.png';
 import voalaImg from '@/img/project/voala.png';
 
 type Project = {
@@ -19,6 +18,8 @@ type Project = {
   image: string;
   /** Vídeo opcional (em /public). Toca no hover (desktop) ou quando o card está visível (mobile). */
   video?: string;
+  /** Versão WebM opcional do vídeo; o navegador usa ela antes do MP4 em `video`. */
+  videoWebm?: string;
   technologies: string[];
   github?: string;
   demo: string;
@@ -31,7 +32,9 @@ const projects: Project[] = [
     title: 'Mcd Store - Loja virtual',
     description:
       'E-commerce full-stack com catálogo, variantes por cor e tamanho, carrinho, favoritos e checkout. Painel administrativo com produtos, categorias, carrossel e relatórios de pedidos. API REST em camadas com autenticação JWT, testes automatizados e CI.',
-    image: mcdStore,
+    image: '/videos/mcd-store-poster.jpg',
+    video: '/videos/mcd-store.mp4',
+    videoWebm: '/videos/mcd-store.webm',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express', 'Prisma', 'PostgreSQL', 'JWT', 'Playwright'],
     github: 'https://github.com/mcdcwb/mcd-store',
     demo: 'https://mcd-store-self.vercel.app/',
@@ -208,16 +211,19 @@ function ProjectCard({ project }: { project: Project }) {
         {project.video && (
           <video
             ref={videoRef}
-            src={project.video}
             muted
             loop
             playsInline
             preload="none"
+            poster={project.image}
             aria-hidden="true"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out ${
               playing ? 'opacity-100' : 'opacity-0'
             }`}
-          />
+          >
+            {project.videoWebm && <source src={project.videoWebm} type="video/webm" />}
+            <source src={project.video} type="video/mp4" />
+          </video>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out" />
       </div>
